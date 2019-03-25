@@ -1,0 +1,15 @@
+<h1>My Fave Restaurants</h1>
+<ul>
+  <% @restaurants.each do |id, r| %>
+    <li>
+      <%= r[:name] %> - <%= r[:address] %>
+      (<%= link_to r[:name],  restaurant_path(id) %>)
+    </li>
+  <% end %>
+</ul>
+<h2>You Searched for <%= @food_type %></h2>
+<form action="/restaurants" method="get">
+  <input type="text" name="food_type" placeholder="Sichuan Food, etc">
+  <input type="submit">
+</form>
+<%= link_to "Contact", contact_us_path %>

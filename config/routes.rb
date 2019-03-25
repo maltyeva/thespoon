@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/about', to: "pages#about"
+  #VERB '/path', to: "controller#action"
+  get '/contact', to: "pages#contact", as: :contact_us
+
+  # get '/', to: "pages#home"
+  root to: "pages#home"
+
+  get '/restaurants/:id', to: "restaurants#show", as: :restaurant
+
+  get '/restaurants', to: "restaurants#index"
+  post '/restaurants', to: "restaurants#create"
 end
